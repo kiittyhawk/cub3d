@@ -5,11 +5,11 @@ LIBFT_PATH	= ./libft
 INCLUDES	= ./includes
 MLX_PATH	= mlx_linux
 
-# SRC		= $(SRC_PATH)/decor.c $(SRC_PATH)/game_draw.c $(SRC_PATH)/game_exit.c \
-# 		$(SRC_PATH)/game_move.c $(SRC_PATH)/game.c $(SRC_PATH)/main.c $(SRC_PATH)/pars_color.c \
-# 		$(SRC_PATH)/sprite_tools.c
+SRC		= $(SRC_PATH)/decor.c $(SRC_PATH)/game_draw.c $(SRC_PATH)/game_exit.c \
+		$(SRC_PATH)/game_move.c $(SRC_PATH)/game.c $(SRC_PATH)/main.c $(SRC_PATH)/pars_color.c \
+		$(SRC_PATH)/sprite_tools.c
 
-SRC		= $(SRC_PATH)/main.c
+# SRC		= $(SRC_PATH)/main.c
 HEADER	= $(INCLUDES)/cub3d.h
 MLX_HEADER	= $(MLX_PATH)/mlx.h
 OBJS	= $(SRC:.c=.o)
