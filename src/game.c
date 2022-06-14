@@ -6,27 +6,15 @@
 /*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 09:43:30 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/05/16 00:11:35 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:59:00 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-char		**read_map(int fd)
+char		*check_map(t_game *game)
 {
-	char	**map;
-
-	(void) fd;
-	ft_putendl_fd("Read Map", 1);
-	map = malloc(sizeof(char));
-	return (map);
-}
-
-char		*check_map(char **map)
-{
-	//char	*err;
-	
-	(void) map;
+	(void) game;
 	ft_putendl_fd("Checking Map", 1);
 	return (NULL);
 }
@@ -36,6 +24,27 @@ void	game_reset(t_game *game)
 	game->win = NULL;
 	game->decor = NULL;
 	game->map = NULL;
+}
+
+void	game_print(t_game *game)
+{
+	ft_putendl_fd("Game.", 1);
+	ft_putendl_fd("Player:", 1);
+	ft_putstr_fd("X = ", 1);
+	ft_putnbr_fd(game->player.x, 1);
+	ft_putstr_fd(" , Y = ", 1);
+	ft_putnbr_fd(game->player.y, 1);
+	ft_putstr_fd(" , Point view = ", 1);
+	ft_putchar_fd(game->point_view, 1);
+	ft_putendl_fd("\nMap.", 1);
+	ft_putstr_fd("width = ", 1);
+	ft_putnbr_fd(game->width, 1);
+	ft_putstr_fd(" , height = ", 1);
+	ft_putnbr_fd(game->height, 1);
+	ft_putchar_fd('\n', 1);
+	int i = -1;
+	while (++i < game->height)
+		ft_putendl_fd(game->map[i], 1);
 }
 
 t_game	*game_init(int fd)
@@ -56,11 +65,12 @@ t_game	*game_init(int fd)
 	game->decor = read_decor(fd, game->mlx);
 	if (!game->decor)
 		game_exit(game, "Invalid textures or colors in map", 7, fd);
-	game->map = read_map(fd);
+	read_map(game, fd);
 	if (!game->map)
 		game_exit(game, "No enought mamory for map!", 8, fd);
-	err_message = check_map(game->map);
+	err_message = check_map(game);
 	if (err_message)
 		game_exit(game, err_message, 9, fd);
+	//game_print(game);
 	return (game);
 }

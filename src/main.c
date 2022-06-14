@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:16:14 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/09 10:43:24 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/05/10 14:06:47 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,6 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		game_exit(game, NULL, 3, 0);
 	game = game_init(fd);
-	int i = -1;
-	while (game->map && game->map[++i] != NULL)
-	{
-		printf("%d\n", i);
-		ft_putendl_fd(game->map[i], 1);
-	}
 	ft_putendl_fd("File OK", 1);
 	mlx_hook(game->win, 17, 0, close_win_hook, game);
 	mlx_key_hook(game->win, key_hook, game);

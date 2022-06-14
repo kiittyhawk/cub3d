@@ -6,21 +6,21 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 10:26:40 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/06 11:02:18 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/14 10:13:23 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-static void	error_exit(char	*err_message, int exit_code, int errno)
+static void	error_exit(char	*err_message, int exit_code)
 {
 	if (exit_code)
 	{
-		ft_putendl_fd("Error", 2);
+		ft_putendl_fd("Error", 1);
 		if (err_message)
-			ft_putendl_fd(err_message, 2);
+			ft_putendl_fd(err_message, 1);
 		else
-			ft_putendl_fd(strerror(errno), 2);
+			ft_putendl_fd(strerror(errno), 1);
 	}
 	//sleep(20);
 	exit(exit_code);
@@ -66,5 +66,5 @@ void	game_exit(t_game *game, char *err_mess, int code, int fd)
 	if (fd > 0)
 		close (fd);
 		//sleep(20);
-	error_exit(err_mess, code, 1);
+	error_exit(err_mess, code);
 }
