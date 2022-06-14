@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 09:43:30 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/10 15:59:00 by nmordeka         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:08:21 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ t_game	*game_init(int fd)
 	err_message = check_map(game);
 	if (err_message)
 		game_exit(game, err_message, 9, fd);
-	//game_print(game);
+	// game_print(game);
 	return (game);
 }
