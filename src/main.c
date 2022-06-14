@@ -6,11 +6,12 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:16:14 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 10:22:14 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/14 11:36:31 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
 
 static int	not_cub_ext(char *filename)
 {

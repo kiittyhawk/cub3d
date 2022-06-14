@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:19:48 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 10:13:48 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/14 11:36:18 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,22 @@
 # define SYM_EMPTY		'0'
 # define SYM_SPACE		' '
 
-# define KEY_UP			13
-# define KEY_DOWN		1
-# define KEY_LEFT		0
-# define KEY_RIGHT		2
+# define SCALE			15 // масштаб 2д карты
+
+# define KEY_UP			65362
+# define KEY_DOWN		65364
+# define KEY_LEFT		65361
+# define KEY_RIGHT		65363
 
 # define KEY_LVIEW		123
 # define KEY_RVIEW		124
 
-# define KEY_ESC		53
+# define KEY_ESC		65307
 
 # define WIN_W			1024
 # define WIN_H			768
+
+# define LINUX			1
 
 typedef struct s_point
 {
