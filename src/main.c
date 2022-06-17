@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:16:14 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:36:31 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 15:29:15 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int	main(int argc, char **argv)
 		game_exit(game, NULL, 3, 0);
 	game = game_init(fd);
 	ft_putendl_fd("File OK", 1);
-	mlx_hook(game->win, 17, 0, close_win_hook, game);
-	mlx_key_hook(game->win, key_hook, game);
-	mlx_loop_hook(game->mlx, draw_buffer, game);
-	mlx_loop(game->mlx);
+	mlx_hook(game->mlx.win, 17, 0, close_win_hook, game);
+	mlx_key_hook(game->mlx.win, key_hook, game);
+	mlx_loop_hook(game->mlx.mlx, draw_buffer, game);
+	mlx_loop(game->mlx.mlx);
 	return (0);
 }

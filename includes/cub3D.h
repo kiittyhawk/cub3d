@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:19:48 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:36:18 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 15:28:59 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <stdio.h>
 # include <errno.h>
+# include <math.h>
 
 # define SYM_WEST		'W'
 # define SYM_EAST		'E'
@@ -27,10 +28,10 @@
 # define SYM_EMPTY		'0'
 # define SYM_SPACE		' '
 
-# define SCALE			15 // масштаб 2д карты
+# define SCALE			16 // масштаб 2д карты
 
-# define KEY_UP			65362
-# define KEY_DOWN		65364
+# define KEY_DOWN		65362
+# define KEY_UP			65364
 # define KEY_LEFT		65361
 # define KEY_RIGHT		65363
 
@@ -74,16 +75,65 @@ typedef struct s_decor
 	int			floor;
 }	t_decor;
 
+typedef struct	s_ray //структура для игрока и луча
+{
+	double		posX;
+	double		posY;
+	double		dirX;
+	double		dirY;
+	double		planeX;
+	double		planeY;
+	int			hit;
+	double		perpwalldist;
+	double		camX;
+	int			rx;
+	int			ry;
+	int			dx;
+	int			dy;
+	int			x;
+	int			mapX;
+	int			mapY;
+	double		moveSpeed;
+	double		rotSpeed;
+	double		raydirX;
+	double		raydirY;
+	double		deltadistX;
+	double		deltadistY;
+	int			stepX;
+	int			stepY;
+	double		sidedistX;
+	double		sidedistY;
+	int			side;
+	int			drawStart;
+	int			drawEnd;
+	int			lineHeight;
+}				  t_ray;
+
+typedef struct s_mlx
+{
+	void		*mlx;
+	void		*win;
+	char		*addr;
+	void		*img;
+	int			bpp;
+	int			en;	
+	int			line_l;
+}	t_mlx;
+
+
 typedef struct s_game
 {
-	t_point		player;
+	t_ray		ray;
+	t_mlx		mlx;
 	char		point_view;
 	int			width;
 	int			height;
-	void		*mlx;
-	void		*win;
+	int			win_w;
+	int			win_h;
 	t_decor		*decor;	
 	char		**map;
+	int			color;
+	
 }	t_game;
 
 int			ft_pars_color(char	*str);

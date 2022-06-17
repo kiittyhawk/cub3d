@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 10:26:40 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:31:50 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 15:30:30 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@ void	game_exit(t_game *game, char *err_mess, int code, int fd)
 		if (game->map)
 			free_map(game->map);
 		if (game->decor)
-			free_decor(game->decor, game->mlx);
-		if (game->win)
-			mlx_destroy_window(game->mlx, game->win);
+			free_decor(game->decor, game->mlx.mlx);
+		if (game->mlx.win)
+			mlx_destroy_window(game->mlx.mlx, game->mlx.win);
+		if (game->mlx.img)
+			mlx_destroy_image(game->mlx.mlx, game->mlx.img);
 		free(game);
+
 	}
 	
 	if (fd > 0)

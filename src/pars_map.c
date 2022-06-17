@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 23:02:54 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:31:23 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 14:19:13 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	fill_player(t_game *game)
 			ch = game->map[y][x];
 			if (ch == 'W' || ch == 'E' || ch == 'S' || ch == 'N')
 			{
-				game->player.x = x;
-				game->player.y = y;
+				game->ray.posX = x;
+				game->ray.posY = y;
 				game->point_view = ch;
 				return ;
 			}
@@ -102,6 +102,7 @@ void	read_map(t_game *game, int fd)
 	str = skip_empty(fd);
 	if (!str)
 		return ;
+	// printf("%s\n", "ss");
 	game->width = ft_strlen(str);
 	new_str = get_next_line(fd);
 	while (new_str && !str_empty(new_str))
