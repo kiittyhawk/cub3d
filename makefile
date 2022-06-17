@@ -24,7 +24,7 @@ OBJS	= $(SRC:.c=.o)
 LIBFT	= $(LIBFT_PATH)/libft.a
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g3 -O3
+CFLAGS	= -Wall -Wextra -Werror -g3 -O3 -g
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I $(INCLUDES) -I $(LIBFT_PATH) -I $(MLX_PATH)

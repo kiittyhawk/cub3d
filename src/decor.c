@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 21:54:02 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:31:46 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:02:31 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 static void	fill_floor(char type, char *str, t_decor *decor)
 {

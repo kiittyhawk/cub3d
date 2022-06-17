@@ -6,7 +6,7 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 21:19:48 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 15:28:59 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:01:53 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CUB3D_H
 
 # include "../libft/libft.h"
-# include <mlx.h>
+# include "../mlx_linux/mlx.h"
 # include <string.h>
 # include <stdio.h>
 # include <errno.h>

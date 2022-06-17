@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 23:02:54 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 14:19:13 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:03:11 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 int	str_empty(char *str)
 {

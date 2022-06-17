@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:17:19 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 15:32:09 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:37:20 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 void	ray_init(t_game *game)
 {
@@ -20,9 +20,7 @@ void	ray_init(t_game *game)
 	game->ray.dirY = 0;
 	game->ray.planeX = 0;
 	game->ray.planeY = 0.66;
-	game->ray.rx = 200;
-	game->ray.ry = 200;
-	game->color = 0xfff;
+	game->color = 0xffffff;
 	game->ray.camX = 2 * game->ray.x / (double)game->ray.rx - 1;
 	game->ray.raydirX = game->ray.dirX + game->ray.planeX * \
 						game->ray.camX;
@@ -98,7 +96,7 @@ void	incrementStep(t_game *game)
 			game->ray.mapY += game->ray.stepY;
 			game->ray.side = 1;
 		}
-		if (game->map[game->ray.mapX][game->ray.mapY] == '1')
+		if (game->map[game->ray.mapY][game->ray.mapX] == 49)
 			game->ray.hit = 1;
 	}
 }
@@ -141,8 +139,8 @@ int	draw_buffer(t_game *game)
 		incrementStep(game);
 		drawStartEnd_init(game);
 		get_color(game);
-		mlx_put_image_to_window(game->mlx.mlx,game->mlx.win, game->mlx.img, 0, 0);
+		game->ray.x++;
 	}
+	mlx_put_image_to_window(game->mlx.mlx,game->mlx.win, game->mlx.img, 0, 0);
 	return (0);
 }
-

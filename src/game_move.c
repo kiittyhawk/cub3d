@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:55:42 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/15 13:21:37 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:02:52 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 int	player_move(int key, t_game *game)
 {

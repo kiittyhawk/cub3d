@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 09:43:30 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 15:27:34 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:02:55 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 char		*check_map(t_game *game)
 {
@@ -30,6 +30,8 @@ void	game_reset(t_game *game)
 	game->mlx.line_l = 0;
 	game->decor = NULL;
 	game->map = NULL;
+	game->ray.rx = 200;
+	game->ray.ry = 200;
 }
 
 void	game_print(t_game *game)

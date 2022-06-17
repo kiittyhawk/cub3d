@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 07:44:33 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/14 11:31:27 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:03:00 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../includes/cub3D.h"
 
 int	clear_arr(char **color_arr)
 {
