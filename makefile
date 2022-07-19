@@ -14,10 +14,11 @@ endif
 
 SRC		= $(SRC_PATH)/decor.c $(SRC_PATH)/game_draw.c $(SRC_PATH)/game_exit.c \
 		$(SRC_PATH)/game_move.c $(SRC_PATH)/game.c $(SRC_PATH)/main.c $(SRC_PATH)/pars_color.c \
-		$(SRC_PATH)/sprite_tools.c $(SRC_PATH)/pars_map.c
+		$(SRC_PATH)/sprite_tools.c $(SRC_PATH)/pars_map.c $(SRC_PATH)/buffer.c $(SRC_PATH)/check_map.c \
+		$(SRC_PATH)/dda.c $(SRC_PATH)/player.c $(SRC_PATH)/check_map_utils.c
 
 # SRC		= $(SRC_PATH)/main.c
-HEADER	= $(INCLUDES)/cub3d.h
+HEADER	= $(INCLUDES)/cub3D.h
 MLX_HEADER	= $(MLX_PATH)/mlx.h
 OBJS	= $(SRC:.c=.o)
 

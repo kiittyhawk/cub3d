@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pars_color.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 07:44:33 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 16:03:00 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/07/11 18:51:16 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "cub3D.h"
 
 int	clear_arr(char **color_arr)
 {
@@ -29,7 +29,7 @@ int	clear_arr(char **color_arr)
 int	check_arr(char	**color_arr)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = -1;
 	while (color_arr[++i])
@@ -50,7 +50,7 @@ int	ft_pars_color(char	*str)
 	int		r;
 	int		g;
 	int		b;
-	
+
 	color_arr = ft_split(str, ',');
 	if (!color_arr)
 		return (1);
@@ -62,5 +62,5 @@ int	ft_pars_color(char	*str)
 	clear_arr(color_arr);
 	if (r > 255 || g > 255 || b > 255)
 		return (1);
-	return (255 << 24 | r << 16 | g << 8 | b);
+	return (r << 16 | g << 8 | b);
 }

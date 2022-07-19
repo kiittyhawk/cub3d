@@ -6,11 +6,11 @@
 /*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 23:02:54 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 16:03:11 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/07/19 12:33:58 by jgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "cub3D.h"
 
 int	str_empty(char *str)
 {
@@ -59,9 +59,10 @@ void	fill_player(t_game *game)
 			ch = game->map[y][x];
 			if (ch == 'W' || ch == 'E' || ch == 'S' || ch == 'N')
 			{
-				game->ray.posX = x;
-				game->ray.posY = y;
-				game->point_view = ch;
+				game->x = x;
+				game->y = y;
+				game->camera = camera_init(x, y, ch);
+				game->map[y][x] = SYM_EMPTY;
 				return ;
 			}
 		}
@@ -82,7 +83,6 @@ void	fill_map(t_game *game)
 		if ((int)ft_strlen(game->map[h]) < game->width)
 		{
 			str = malloc(game->width + 1);
-			ft_memset(str, ' ', game->width);
 			ft_memcpy(str, game->map[h], ft_strlen(game->map[h]));
 			str[game->width] = '\0';
 			free(game->map[h]);
@@ -90,7 +90,6 @@ void	fill_map(t_game *game)
 		}
 	}
 	game->height = h;
-	fill_player(game);
 }
 
 void	read_map(t_game *game, int fd)
@@ -102,7 +101,6 @@ void	read_map(t_game *game, int fd)
 	str = skip_empty(fd);
 	if (!str)
 		return ;
-	// printf("%s\n", "ss");
 	game->width = ft_strlen(str);
 	new_str = get_next_line(fd);
 	while (new_str && !str_empty(new_str))

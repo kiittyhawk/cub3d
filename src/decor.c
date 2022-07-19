@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   decor.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgyles <jgyles@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nmordeka <nmordeka@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 21:54:02 by nmordeka          #+#    #+#             */
-/*   Updated: 2022/06/17 16:02:31 by jgyles           ###   ########.fr       */
+/*   Updated: 2022/07/12 11:24:10 by nmordeka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "cub3D.h"
 
 static void	fill_floor(char type, char *str, t_decor *decor)
 {
-	if (type == 'F' && decor->floor > 0)
+	if (type == 'F' && decor->floor == 0)
 		decor->floor = ft_pars_color(str);
-	else if (decor->ceiling > 0)
+	else if (decor->ceiling == 0)
 		decor->ceiling = ft_pars_color(str);
 }
 
 static void	fill_texture(char type, char *str, t_decor *decor, void *mlx)
 {
 	if (type == 'S' && !(decor->south))
-		decor->south = ft_sprite_init(str, mlx);
+		decor->south = init_buf(mlx, 0, 0, str);
 	else if (type == 'N' && !(decor->north))
-		decor->north = ft_sprite_init(str, mlx);
+		decor->north = init_buf(mlx, 0, 0, str);
 	else if (type == 'E' && !(decor->east))
-		decor->east = ft_sprite_init(str, mlx);
+		decor->east = init_buf(mlx, 0, 0, str);
 	else if (type == 'W' && !(decor->west))
-		decor->west = ft_sprite_init(str, mlx);
+		decor->west = init_buf(mlx, 0, 0, str);
 }
 
 static void	fill_decor(char *str, t_decor *decor, void *mlx)
@@ -58,51 +58,24 @@ static void	fill_decor(char *str, t_decor *decor, void *mlx)
 static	int	check_fill(t_decor *dec)
 {
 	if (dec->south && dec->north && dec->east && dec->west \
-		&& dec->ceiling <= 0 && dec->floor <= 0)
+		&& dec->ceiling > 0 && dec->floor > 0)
 		return (1);
 	return (0);
 }
 
-t_decor	*init_decor(void)
+int	read_decor(t_decor *decor, int fd, void *mlx)
 {
-	t_decor	*decor;
-
-	decor = malloc(sizeof(t_decor));
-	if (decor)
-	{
-		decor->south = NULL;
-		decor->north = NULL;
-		decor->east = NULL;
-		decor->west = NULL;
-		decor->ceiling = 1;
-		decor->floor = 1;
-	}
-	return (decor);
-}
-
-t_decor		*read_decor(int fd, void *mlx)
-{
-	t_decor	*decor;
 	char	*str;
 
 	ft_putendl_fd("Read Decor", 1);
-	decor = init_decor();
-	if (decor)
+	str = get_next_line(fd);
+	while (str)
 	{
+		fill_decor(str, decor, mlx);
+		free(str);
+		if (check_fill(decor))
+			break ;
 		str = get_next_line(fd);
-		while (str)
-		{
-			fill_decor(str, decor, mlx);
-			free(str);
-			if (check_fill(decor))
-				break;
-			str = get_next_line(fd);
-		}
-		if (!check_fill(decor))
-		{
-			free_decor(decor, mlx);
-			decor = NULL;
-		}
 	}
-	return (decor);
+	return (check_fill(decor));
 }
